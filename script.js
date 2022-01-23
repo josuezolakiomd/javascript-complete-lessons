@@ -41,14 +41,14 @@ function logger() {
   Function Declaration
 */
 
-function calcAge(birthYear) {
-  const currentYear = new Date().getFullYear();
-  return currentYear - birthYear;
-}
+// function calcAge(birthYear) {
+//   const currentYear = new Date().getFullYear();
+//   return currentYear - birthYear;
+// }
 
-const zolakiosAge = `Josue Zolakio has ${calcAge(2000)} years old!`;
+// const zolakiosAge = `Josue Zolakio has ${calcAge(2000)} years old!`;
 
-console.log(zolakiosAge);
+// console.log(zolakiosAge);
 
 /* Second Way Function Expression: Anonymous Function.
    Store It in a variable! 
@@ -57,10 +57,10 @@ console.log(zolakiosAge);
     we need to store it in a variable
 */
 
-const calcAge1 = function (birthYear) {
-  const currentYear = new Date().getFullYear();
-  return currentYear - birthYear;
-};
+// const calcAge1 = function (birthYear) {
+//   const currentYear = new Date().getFullYear();
+//   return currentYear - birthYear;
+// };
 
 // const age1 = calcAge1(1998);
 // console.log(age1);
@@ -80,10 +80,10 @@ const calcAge1 = function (birthYear) {
    shorter and faster to write. Arrow Function can't use "this." keyword.
 */
 
-const calcAge2 = birthYear => {
-  const currentYear = new Date().getFullYear();
-  return currentYear - birthYear;
-};
+// const calcAge2 = birthYear => {
+//   const currentYear = new Date().getFullYear();
+//   return currentYear - birthYear;
+// };
 
 // console.log(calcAge2(2009));
 
@@ -91,19 +91,40 @@ const calcAge2 = birthYear => {
   Functions calling other functions
 */
 
-function cutFruitPieces(fruit) {
-  return fruit * 4;
-}
+// function cutFruitPieces(fruit) {
+//   return fruit * 4;
+// }
 
-function fruitProcessor(apples, oranges) {
-  const applesPieces = cutFruitPieces(apples);
-  const orangesPieces = cutFruitPieces(oranges);
+// function fruitProcessor(apples, oranges) {
+//   const applesPieces = cutFruitPieces(apples);
+//   const orangesPieces = cutFruitPieces(oranges);
 
-  return `Juice with ${applesPieces} apples's Pc and ${orangesPieces} oranges's PC`;
-}
+//   return `Juice with ${applesPieces} apples's Pc and ${orangesPieces} oranges's PC`;
+// }
 
-const mondayJuice = fruitProcessor(3, 4);
-const tuesdayJuice = fruitProcessor(12, 16);
+// const mondayJuice = fruitProcessor(3, 4);
+// const tuesdayJuice = fruitProcessor(12, 16);
 
 // console.log(mondayJuice);
 // console.log(tuesdayJuice);
+
+const fullName = 'Josué Zolakio';
+
+const calcAge = birthYear => {
+  const currentYear = new Date().getFullYear();
+  return currentYear - birthYear;
+};
+
+const yearsUntilRetiremet = (birthYear, fullName) => {
+  const age = calcAge(birthYear);
+  const retirement = 45 - age;
+
+  if (retirement < 1) {
+    return console.log(`Congratulations! ${fullName} has already retired!`);
+  }
+
+  const result = `${fullName} retires in ${retirement} years`;
+  return console.log(result);
+};
+
+yearsUntilRetiremet(2000, fullName);
